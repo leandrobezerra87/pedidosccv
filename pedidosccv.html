@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecionador de URL - Metrô</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background-color: #1E2A38;
+            color: #FFFFFF;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Centraliza os itens horizontalmente */
+            justify-content: center; /* Centraliza os itens verticalmente */
+            width: 400px;
+            background-color: #2E3A48;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+
+        .container img {
+            width: 80px;
+            margin-bottom: 20px;
+        }
+
+        .container h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #64B5F6; /* Substituído por um azul claro */
+        }
+
+        .container input {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            border: none;
+            font-size: 16px;
+            color: #333;
+        }
+
+        .container button {
+            width: 100%;
+            padding: 15px;
+            background-color: #64B5F6; /* Azul claro */
+            color: #2E3A48;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .container button:hover {
+            background-color: #42A5F5; /* Azul mais escuro ao passar o mouse */
+        }
+
+        .container p {
+            font-size: 16px;
+            color: #90A4AE;
+            margin-top: 10px;
+        }
+
+        @media (max-width: 500px) {
+            .container {
+                width: 90%;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Metr%C3%B4-SP_icon.svg/240px-Metr%C3%B4-SP_icon.svg.png" alt="Logotipo Metrô SP">
+        <h2>Pesquisa de Pedido</h2>
+        <input type="text" id="numero" placeholder="Digite o número do pedido">
+        <button onclick="redirecionar()">Pesquisar</button>
+        <p>O conteúdo será aberto em uma nova aba.</p>
+    </div>
+
+    <script>
+        function redirecionar() {
+            var numero = document.getElementById("numero").value;
+            if (numero) {
+                var url = "https://metrosp.sharepoint.com/sites/PortalMTV/Lists/CSA%20%20Pedidos%20Zeladoria/DispForm.aspx?ID=" + numero + "&e=tvmItu";
+                window.open(url, '_blank');
+            } else {
+                alert("Por favor, insira um número.");
+            }
+        }
+    </script>
+</body>
+</html>
